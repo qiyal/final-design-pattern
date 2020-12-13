@@ -2,6 +2,7 @@ package sample.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,11 +19,12 @@ import sample.models.products.BookGenreEnum;
 import sample.services.AuthService;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class HomeController {
-    private static HomeController instance = new HomeController();
+public class HomeController implements Initializable {
     private BookDatabase bookDatabase = BookDatabase.getInstance();
     private int pageNumber = 1;
 
@@ -217,19 +219,6 @@ public class HomeController {
     @FXML
     private Button nextBtn;
 
-    @FXML
-    void initialize() {
-        loginBtn.setOnAction(event -> {
-            openWindow(loginBtn, "Login", false, "/sample/views/login.fxml");
-        });
-
-        signUpBtn.setOnAction(event -> {
-            openWindow(signUpBtn, "Sign Up", false, "/sample/views/sign-up.fxml");
-        });
-
-        initAllElementArrayList();
-    }
-
     private void openWindow(Node note, String title, boolean hide, String path) {
         if (hide) {
             note.getScene().getWindow().hide();
@@ -305,16 +294,9 @@ public class HomeController {
         setInfos();
     }
 
-    public static HomeController getInstance() {
-        return instance;
-    }
-
-    public Button getPrevBtn() {
-        return prevBtn;
-    }
-
-    public Button getLoginBtn() {
-        return loginBtn;
+    public void hideLoginAndSignUpBtns() {
+        loginBtn.setVisible(false);
+        signUpBtn.setVisible(false);
     }
 
     public void setInfos() {
@@ -392,4 +374,16 @@ public class HomeController {
         return Integer.toString(price);
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loginBtn.setOnAction(event -> {
+            openWindow(loginBtn, "Login", false, "/sample/views/login.fxml");
+        });
+
+        signUpBtn.setOnAction(event -> {
+            openWindow(signUpBtn, "Sign Up", false, "/sample/views/sign-up.fxml");
+        });
+
+        initAllElementArrayList();
+    }
 }

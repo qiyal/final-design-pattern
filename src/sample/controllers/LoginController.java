@@ -13,7 +13,6 @@ import java.io.IOException;
 
 public class LoginController {
     private AuthService authService = AuthService.getInstance();
-    private HomeController homeController = HomeController.getInstance();
 
     @FXML
     private TextField login;
@@ -38,9 +37,23 @@ public class LoginController {
 
         signInLoginBtn.setOnAction(event -> {
             if (authService.login(login.getText(), password.getText())) {
+
+                try {
+                    FXMLLoader layout1Loader = new FXMLLoader(getClass().getResource("/sample/views/home.fxml"));
+                    Parent root = layout1Loader.load();
+
+                    HomeController l1Controller = layout1Loader.getController();
+
+                    l1Controller.hideLoginAndSignUpBtns();
+
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("Flip");
+                    stage.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 signInLoginBtn.getScene().getWindow().hide();
-                homeController.getPrevBtn().setVisible(false);
-                homeController.getLoginBtn().setVisible(false);
             } else {
                 errorText.setText("Login or password is not correct!");
             }
