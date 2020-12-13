@@ -5,21 +5,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import sample.services.AuthService;
 
 import java.io.IOException;
 
 public class LoginController {
+    private AuthService authService = AuthService.getInstance();
+    private HomeController homeController = HomeController.getInstance();
 
     @FXML
-    private TextField signInLoginVar;
+    private TextField login;
 
     @FXML
-    private PasswordField signInPasswordVar;
+    private PasswordField password;
+
+    @FXML
+    private Label errorText;
 
     @FXML
     private Button signInLoginBtn;
@@ -31,6 +34,16 @@ public class LoginController {
     void initialize() {
         signUpLink.setOnAction(event -> {
             openWindow(signUpLink, "Sign Up",true, "/sample/views/sign-up.fxml");
+        });
+
+        signInLoginBtn.setOnAction(event -> {
+            if (authService.login(login.getText(), password.getText())) {
+                signInLoginBtn.getScene().getWindow().hide();
+                homeController.getPrevBtn().setVisible(false);
+                homeController.getLoginBtn().setVisible(false);
+            } else {
+                errorText.setText("Login or password is not correct!");
+            }
         });
     }
 

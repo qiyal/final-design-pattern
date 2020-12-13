@@ -1,21 +1,23 @@
-package sample.models;
+package sample.models.products;
 
 import java.util.Set;
 
 public class Book extends Product {
-    private long bookId;
+    private int bookId;
     private String name;
     private Set<String> authorName;
     private int price;
-    private String genre;
+    private BookGenreEnum genre;
     private int year;
-    private String publisher;
+    private BookPublisherEnum publisher;
     private int quantity;
-    private String series;
+    private int idPart;
+    private int part;
+    private String urlImage;
 
     public Book() {}
 
-    public Book(long bookId, String name, Set<String> authorName, int price, String genre, int year, String publisher, int quantity, String series) {
+    public Book(int bookId, String name, Set<String> authorName, int price, BookGenreEnum genre, int year, BookPublisherEnum publisher, int quantity, int idPart, int part, String urlImage) {
         this.bookId = bookId;
         this.name = name;
         this.authorName = authorName;
@@ -24,10 +26,16 @@ public class Book extends Product {
         this.year = year;
         this.publisher = publisher;
         this.quantity = quantity;
-        this.series = series;
+        this.idPart = idPart;
+        this.part = part;
+        this.urlImage = urlImage;
     }
 
-    public long getBookId() {
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public int getBookId() {
         return bookId;
     }
 
@@ -43,7 +51,7 @@ public class Book extends Product {
         return price;
     }
 
-    public String getGenre() {
+    public BookGenreEnum getGenre() {
         return genre;
     }
 
@@ -51,7 +59,7 @@ public class Book extends Product {
         return year;
     }
 
-    public String getPublisher() {
+    public BookPublisherEnum getPublisher() {
         return publisher;
     }
 
@@ -59,7 +67,11 @@ public class Book extends Product {
         return quantity;
     }
 
-    public String getSeries() {
-        return series;
+    public int getIdPart() {
+        return idPart;
+    }
+
+    public int getPart() {
+        return part;
     }
 }

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -8,11 +13,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #2f2b43;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="851.0" prefWidth="1295.0" style="-fx-background-color: #2f2b43;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.HomeController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="192.0" style="-fx-background-color: #393351;">
+      <AnchorPane prefHeight="851.0" prefWidth="192.0" style="-fx-background-color: #393351;">
          <children>
-            <VBox layoutY="100.0" prefHeight="259.0" prefWidth="192.0">
+            <VBox layoutY="100.0" prefHeight="298.0" prefWidth="192.0">
                <children>
                   <Button fx:id="profileBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="47.0" prefWidth="193.0" style="-fx-background-color: #393351; -fx-background-radius: 30 0 0 30; -fx-border-color: #fff;" text="Profile" textFill="WHITE">
                      <graphic>
@@ -38,26 +43,166 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="192.0" prefHeight="62.0" prefWidth="808.0" style="-fx-background-color: #fff;">
+      <AnchorPane layoutX="192.0" prefHeight="62.0" prefWidth="1103.0" style="-fx-background-color: #393351;">
          <children>
-            <Button fx:id="loginBtn" layoutX="736.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #393351;" text="login" textFill="WHITE" />
-            <Button fx:id="signUpBtn" layoutX="668.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: #393351;" text="Sign up" textFill="WHITE" />
+            <Button fx:id="loginBtn" layoutX="1026.0" layoutY="16.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #2f2b43;" text="login" textFill="WHITE" />
+            <Button fx:id="signUpBtn" layoutX="937.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: #2f2b43;" text="Sign up" textFill="WHITE" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="192.0" layoutY="62.0" prefHeight="538.0" prefWidth="808.0">
          <children>
-            <GridPane layoutX="7.0" layoutY="7.0" prefHeight="528.0" prefWidth="797.0">
+            <GridPane fx:id="grid" layoutX="7.0" layoutY="7.0" prefHeight="711.0" prefWidth="1090.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
+               <children>
+                  <AnchorPane fx:id="child1" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="name1" layoutX="182.0" layoutY="77.0" text="Book Name" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="authorName1" layoutX="182.0" layoutY="121.0" text="Author name" textFill="WHITE" />
+                        <Label fx:id="genre1" layoutX="182.0" layoutY="157.0" text="genre" textFill="#e4e4e4" />
+                        <Label fx:id="price1" layoutX="182.0" layoutY="194.0" text="Price: " textFill="WHITE" />
+                        <Button fx:id="addToCard1" layoutX="28.0" layoutY="266.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="308.0" text="add to cart" />
+                        <Button fx:id="AddToLike1" layoutX="295.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0">
+                           <graphic>
+                              <ImageView fitHeight="37.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/heart.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <ImageView fx:id="bookImage1" fitHeight="215.0" fitWidth="154.0" layoutX="28.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/image/book1.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="child2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label fx:id="name2" layoutX="182.0" layoutY="77.0" text="Book Name" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="authorName2" layoutX="182.0" layoutY="121.0" text="Author name" textFill="WHITE" />
+                        <Label fx:id="genre2" layoutX="182.0" layoutY="157.0" text="genre" textFill="#e4e4e4" />
+                        <Label fx:id="price2" layoutX="182.0" layoutY="194.0" text="Price: " textFill="WHITE" />
+                        <Button fx:id="addToCard2" layoutX="28.0" layoutY="266.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="308.0" text="add to cart" />
+                        <Button fx:id="AddToLike2" layoutX="295.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0">
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/heart.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <ImageView fx:id="bookImage2" fitHeight="215.0" fitWidth="131.0" layoutX="28.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="child3" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                     <children>
+                        <Label fx:id="name3" layoutX="182.0" layoutY="77.0" text="Book Name" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="authorName3" layoutX="182.0" layoutY="121.0" text="Author name" textFill="WHITE" />
+                        <Label fx:id="genre3" layoutX="182.0" layoutY="157.0" text="genre" textFill="#e4e4e4" />
+                        <Label fx:id="price3" layoutX="182.0" layoutY="194.0" text="Price: " textFill="WHITE" />
+                        <Button fx:id="addToCard3" layoutX="28.0" layoutY="266.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="308.0" text="add to cart" />
+                        <Button fx:id="AddToLike3" layoutX="295.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0">
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/heart.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <ImageView fx:id="bookImage3" fitHeight="215.0" fitWidth="131.0" layoutX="28.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="child4" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="name4" layoutX="182.0" layoutY="77.0" text="Book Name" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="authorName4" layoutX="182.0" layoutY="121.0" text="Author name" textFill="WHITE" />
+                        <Label fx:id="genre4" layoutX="182.0" layoutY="157.0" text="genre" textFill="#e4e4e4" />
+                        <Label fx:id="price4" layoutX="182.0" layoutY="194.0" text="Price: " textFill="WHITE" />
+                        <Button fx:id="addToCard4" layoutX="28.0" layoutY="266.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="308.0" text="add to cart" />
+                        <Button fx:id="AddToLike4" layoutX="295.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0">
+                           <graphic>
+                              <ImageView fitHeight="29.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/heart.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <ImageView fx:id="bookImage4" fitHeight="215.0" fitWidth="131.0" layoutX="30.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="child5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="name5" layoutX="182.0" layoutY="77.0" text="Book Name" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="authorName5" layoutX="182.0" layoutY="121.0" text="Author name" textFill="WHITE" />
+                        <Label fx:id="genre5" layoutX="182.0" layoutY="157.0" text="genre" textFill="#e4e4e4" />
+                        <Label fx:id="price5" layoutX="182.0" layoutY="194.0" text="Price: " textFill="WHITE" />
+                        <Button fx:id="addToCard5" layoutX="28.0" layoutY="266.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="308.0" text="add to cart" />
+                        <Button fx:id="AddToLike5" layoutX="295.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0">
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/heart.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <ImageView fx:id="bookImage5" fitHeight="215.0" fitWidth="131.0" layoutX="28.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="child6" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="name6" layoutX="182.0" layoutY="77.0" text="Book Name" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="authorName6" layoutX="182.0" layoutY="121.0" text="Author name" textFill="WHITE" />
+                        <Label fx:id="genre6" layoutX="182.0" layoutY="157.0" text="genre" textFill="#e4e4e4" />
+                        <Label fx:id="price6" layoutX="182.0" layoutY="194.0" text="Price: " textFill="WHITE" />
+                        <Button fx:id="addToCard6" layoutX="28.0" layoutY="266.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="308.0" text="add to cart" />
+                        <Button fx:id="AddToLike6" layoutX="295.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0">
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/heart.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <ImageView fx:id="bookImage6" fitHeight="215.0" fitWidth="131.0" layoutX="14.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+               </children>
             </GridPane>
          </children>
       </AnchorPane>
+      <Button fx:id="nextBtn" layoutX="847.0" layoutY="794.0" mnemonicParsing="false" text="next" />
+      <Button fx:id="prevBtn" layoutX="655.0" layoutY="794.0" mnemonicParsing="false" text="prev" />
    </children>
 </AnchorPane>
